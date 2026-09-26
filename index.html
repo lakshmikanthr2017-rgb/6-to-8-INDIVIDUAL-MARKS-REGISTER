@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 ರಿಂದ 8 ನೇ ತರಗತಿಯ ವಿದ್ಯಾರ್ಥಿಗಳ ಅಂಕ ನಮೂದು ವಹಿ</title>
+    <!-- Google Fonts for Kannada typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2b4c7e;
+            --primary-dark: #1a325c;
+            --secondary-color: #4a7c59;
+            --accent-color: #c05621;
+            --bg-color: #f0f4f8;
+            --card-bg: #ffffff;
+            --text-color: #2d3748;
+            --border-color: #cbd5e0;
+            --danger-color: #e53e3e;
+            --header-bg: linear-gradient(135deg, #1a325c, #2b4c7e);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans Kannada', 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 20px;
+            line-height: 1.4;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        header {
+            background: var(--header-bg);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .school-header-input {
+            width: 100%;
+            padding: 12px 18px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border: 2px solid rgba(255,255,255,0.4);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            text-align: center;
+            margin-bottom: 10px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .school-header-input::placeholder {
+            color: rgba(255,255,255,0.75);
+        }
+
+        .school-header-input:focus {
+            background: rgba(255,255,255,0.25);
+            border-color: #ffffff;
+        }
+
+        .header-title {
+            text-align: center;
+            font-size: 1.2rem;
+            opacity: 0.95;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+        }
+
+        /* Card Layout */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 8px;
+        }
+
+        /* Form Controls */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #4a5568;
+        }
+
+        .form-control {
+            padding: 10px 12px;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            outline: none;
+            transition: all 0.2s ease;
+            background-color: #fff;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(43, 76, 126, 0.15);
+        }
+
+        .btn-container {
+            margin-top: 18px;
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #385e43;
+            box-shadow: 0 2px 6px rgba(74, 124, 89, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn-danger {
+            background-color: var(--danger-color);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #c53030;
+        }
+
+        /* Excel Table Layout */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.85rem;
+        }
+
+        th, td {
+            padding: 8px 4px;
+            text-align: center;
+            border: 1px solid #a0aec0;
+        }
+
+        .th-main { background-color: #1a325c; color: white; }
+        .th-student { background-color: #2b4c7e; color: white; }
+        .th-fa { background-color: #2c7a7b; color: white; }
+        .th-sa { background-color: #c05621; color: white; }
+        .th-total { background-color: #276749; color: white; }
+
+        .th-sub-fa { background-color: #e6fffa; color: #234e52; font-weight: bold; }
+        .th-sub-sa { background-color: #feebc8; color: #7b341e; font-weight: bold; }
+        .th-sub-total { background-color: #c6f6d5; color: #1c4532; font-weight: bold; }
+
+        .col-student { text-align: left; font-weight: 600; background-color: #f7fafc; padding-left: 8px; }
+        .col-fa { background-color: #f0fdf4; }
+        .col-sa { background-color: #fffaf0; }
+        .col-total { background-color: #e6fffa; font-weight: bold; }
+
+        /* Grade Badge Colors */
+        .grade-badge {
+            display: inline-block;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        .grade-A-plus { background-color: #c6f6d5; color: #22543d; } 
+        .grade-A { background-color: #ebf8ff; color: #2b6cb0; }      
+        .grade-B-plus { background-color: #fefcbf; color: #744210; } 
+        .grade-B { background-color: #feebc8; color: #7b341e; }      
+        .grade-C { background-color: #fed7d7; color: #9b2c2c; }      
+
+        tbody tr:hover {
+            background-color: #edf2f7;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            color: var(--danger-color);
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 2px 4px;
+        }
+
+        .meta-section {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            background: #fff;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .prepared-by-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .prepared-by-box input {
+            padding: 8px 12px;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            width: 260px;
+        }
+
+        /* Print Display Settings */
+        .print-prepared-display {
+            display: none;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .print-school-display {
+            display: none;
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 6px;
+            color: #000;
+        }
+
+        .print-info-header {
+            display: none;
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #111;
+            border-bottom: 2px solid #000;
+            padding-bottom: 8px;
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            @page {
+                size: A4 landscape;
+                margin: 8mm 6mm;
+            }
+
+            body {
+                background: white;
+                color: black;
+                padding: 0;
+            }
+
+            header, .data-entry-card, .btn-container, .action-column, .action-btn, .prepared-by-box, .btn-print-trigger {
+                display: none !important;
+            }
+
+            .container {
+                max-width: 100%;
+                margin: 0;
+            }
+
+            .card {
+                border: none;
+                box-shadow: none;
+                padding: 0;
+            }
+
+            .print-school-display, .print-info-header {
+                display: block !important;
+            }
+
+            .print-prepared-display {
+                display: block !important;
+            }
+
+            table {
+                width: 100%;
+                border: 1px solid #000;
+                margin-top: 10px;
+            }
+
+            th, td {
+                border: 1px solid #000 !important;
+                padding: 3px 2px;
+                color: #000;
+                font-size: 0.72rem;
+            }
+
+            th {
+                background-color: #f2f2f2 !important;
+                color: #000 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .col-fa, .col-sa, .col-total, .col-student {
+                background-color: transparent !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header / School Info Input -->
+    <header>
+        <input type="text" id="schoolNameInput" class="school-header-input" placeholder="ಶಾಲೆಯ ಹೆಸರು ನಮೂದಿಸಿ (Enter School Name)" oninput="saveAndHeaderUpdate()">
+        <div class="header-title">6 ರಿಂದ 8 ನೇ ತರಗತಿಯ ವಿದ್ಯಾರ್ಥಿಗಳ ಅಂಕ ನಮೂದು ವಹಿ ( TEACHER INDIVIDUAL MARKS REGISTER )</div>
+    </header>
+
+    <!-- Data Entry Form Box -->
+    <div class="card data-entry-card">
+        <div class="card-title">
+            <span>📝</span> ಮಾಹಿತಿ ದಾಖಲಾತಿ ವಿಭಾಗ (Data Entry Screen)
+        </div>
+        <form id="assessmentForm" onsubmit="handleFormSubmit(event)">
+            <div class="form-grid">
+                <!-- Class Dropdown -->
+                <div class="form-group">
+                    <label for="classSelect">ತರಗತಿ (Class) *</label>
+                    <select id="classSelect" class="form-control" required onchange="handleClassChange()">
+                        <option value="">-- ತರಗತಿ ಆಯ್ಕೆಮಾಡಿ --</option>
+                        <option value="6th Class">6th Class (6ನೇ ತರಗತಿ)</option>
+                        <option value="7th Class">7th Class (7ನೇ ತರಗತಿ)</option>
+                        <option value="8th Class">8th Class (8ನೇ ತರಗತಿ)</option>
+                    </select>
+                </div>
+
+                <!-- Subject Dropdown -->
+                <div class="form-group">
+                    <label for="subjectSelect">ವಿಷಯ (Subject) *</label>
+                    <select id="subjectSelect" class="form-control" required onchange="handleSubjectChange()">
+                        <option value="">-- ವಿಷಯ ಆಯ್ಕೆಮಾಡಿ --</option>
+                        <option value="ಕನ್ನಡ">ಕನ್ನಡ (Kannada)</option>
+                        <option value="ಇಂಗ್ಲಿಷ್">ಇಂಗ್ಲಿಷ್ (English)</option>
+                        <option value="ಹಿಂದಿ">ಹಿಂದಿ (Hindi)</option>
+                        <option value="ಗಣಿತ">ಗಣಿತ (Mathematics)</option>
+                        <option value="ವಿಜ್ಞಾನ">ವಿಜ್ಞಾನ (Science)</option>
+                        <option value="ಸಮಾಜವಿಜ್ಞಾನ">ಸಮಾಜವಿಜ್ಞಾನ (Social Science)</option>
+                    </select>
+                </div>
+
+                <!-- Student Name Selection/Input -->
+                <div class="form-group">
+                    <label for="studentNameSelect">ವಿದ್ಯಾರ್ಥಿಯ ಹೆಸರು (Student Name) *</label>
+                    <select id="studentNameSelect" class="form-control" onchange="handleStudentSelectChange()">
+                        <option value="NEW">+ ಹೊಸ ವಿದ್ಯಾರ್ಥಿ ಸೇರಿಸಿ (+ Add New Student)</option>
+                    </select>
+                    <input type="text" id="studentNameInput" class="form-control" style="margin-top: 6px;" placeholder="ವಿದ್ಯಾರ್ಥಿ ಹೆಸರು ಟೈಪ್ ಮಾಡಿ" required>
+                </div>
+
+                <!-- Assessment Type Dropdown -->
+                <div class="form-group">
+                    <label for="assessmentType">ಮೌಲ್ಯಮಾಪನ ವಿಧ (Assessment) *</label>
+                    <select id="assessmentType" class="form-control" required>
+                        <option value="">-- ಮೌಲ್ಯಮಾಪನ ಆಯ್ಕೆಮಾಡಿ --</option>
+                        <option value="FA1">FA-1</option>
+                        <option value="FA2">FA-2</option>
+                        <option value="SA1">SA-1</option>
+                        <option value="FA3">FA-3</option>
+                        <option value="FA4">FA-4</option>
+                        <option value="SA2">SA-2</option>
+                    </select>
+                </div>
+
+                <!-- Max Marks -->
+                <div class="form-group">
+                    <label for="maxMarks">ಗರಿಷ್ಠ ಅಂಕ (Max Marks) *</label>
+                    <input type="number" id="maxMarks" class="form-control" min="1" max="100" placeholder="ಉದಾ: 20, 25, 40, 50, 80" required>
+                </div>
+
+                <!-- Obtained Marks -->
+                <div class="form-group">
+                    <label for="obtainedMarks">ಪಡೆದ ಅಂಕ (Obtained Marks) *</label>
+                    <input type="number" id="obtainedMarks" class="form-control" min="0" max="100" step="0.5" placeholder="ಪಡೆದ ಅಂಕ" required>
+                </div>
+            </div>
+
+            <div class="btn-container">
+                <button type="submit" class="btn btn-primary">💾 ಸೇವ್ ಮಾಡಿ (Save Data)</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Data Sheet Table Section -->
+    <div class="card">
+        <!-- Print Header Titles -->
+        <div id="printSchoolTitle" class="print-school-display"></div>
+        <div id="printInfoHeader" class="print-info-header"></div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+            <div class="card-title" style="border: none; padding: 0; margin: 0;">
+                <span>📊</span> ಮೌಲ್ಯಮಾಪನ ದತ್ತಾಂಶ ಶೀಟ್ (Data Sheet)
+            </div>
+            <div class="btn-container btn-print-trigger" style="margin: 0;">
+                <button onclick="clearAllData()" class="btn btn-danger" style="margin-right: 8px;">🗑️ ಎಲ್ಲಾ ಡೇಟಾ ಅಳಿಸಿ (Reset)</button>
+                <button onclick="window.print()" class="btn btn-secondary">🖨️ ಪ್ರಿಂಟ್ ಮಾಡಿ (Print Report)</button>
+            </div>
+        </div>
+
+        <!-- Excel Comprehensive Data Sheet Structure -->
+        <div class="table-responsive">
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th rowspan="2" class="th-main" style="width: 35px;">ಕ್ರ.ಸಂ</th>
+                        <th rowspan="2" class="th-student" style="min-width: 160px;">ವಿದ್ಯಾರ್ಥಿಯ ಹೆಸರು</th>
+                        
+                        <!-- FA-1 (10%) -->
+                        <th colspan="3" class="th-fa">FA-1 (10%)</th>
+                        <!-- FA-2 (10%) -->
+                        <th colspan="3" class="th-fa">FA-2 (10%)</th>
+                        <!-- SA-1 (30%) -->
+                        <th colspan="3" class="th-sa">SA-1 (30%)</th>
+                        <!-- FA-3 (10%) -->
+                        <th colspan="3" class="th-fa">FA-3 (10%)</th>
+                        <!-- FA-4 (10%) -->
+                        <th colspan="3" class="th-fa">FA-4 (10%)</th>
+                        <!-- SA-2 (30%) -->
+                        <th colspan="3" class="th-sa">SA-2 (30%)</th>
+                        
+                        <!-- Overall Total -->
+                        <th colspan="3" class="th-total">ಒಟ್ಟು ಮೌಲ್ಯಮಾಪನ (Total 100%)</th>
+                        <th rowspan="2" class="th-main action-column" style="width: 35px;">ಕ್ರಿಯೆ</th>
+                    </tr>
+                    <tr>
+                        <!-- Subheaders -->
+                        <th class="th-sub-fa">ಪಡೆದ ಅಂಕ</th><th class="th-sub-fa">10%</th><th class="th-sub-fa">Grade</th>
+                        <th class="th-sub-fa">ಪಡೆದ ಅಂಕ</th><th class="th-sub-fa">10%</th><th class="th-sub-fa">Grade</th>
+                        <th class="th-sub-sa">ಪಡೆದ ಅಂಕ</th><th class="th-sub-sa">30%</th><th class="th-sub-sa">Grade</th>
+                        <th class="th-sub-fa">ಪಡೆದ ಅಂಕ</th><th class="th-sub-fa">10%</th><th class="th-sub-fa">Grade</th>
+                        <th class="th-sub-fa">ಪಡೆದ ಅಂಕ</th><th class="th-sub-fa">10%</th><th class="th-sub-fa">Grade</th>
+                        <th class="th-sub-sa">ಪಡೆದ ಅಂಕ</th><th class="th-sub-sa">30%</th><th class="th-sub-sa">Grade</th>
+                        
+                        <!-- Total Subheaders -->
+                        <th class="th-sub-total">ಪಡೆದ ಅಂಕ (100)</th>
+                        <th class="th-sub-total">%</th>
+                        <th class="th-sub-total">Grade</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr id="emptyRow">
+                        <td colspan="24" style="color: #718096; padding: 24px; text-align: center;">
+                            ಯಾವ ದತ್ತಾಂಶವೂ ಲಭ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ಮೇಲಿನ ಫಾರ್ಮ್ ಬಳಸಿ ವಿದ್ಯಾರ್ಥಿಗಳ ಅಂಕಗಳನ್ನು ನಮೂದಿಸಿ.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footer Meta Info -->
+        <div class="meta-section">
+            <div class="prepared-by-box">
+                <label for="preparedByInput">ತಯಾರಕರು (Prepared By):</label>
+                <input type="text" id="preparedByInput" placeholder="LAKSHMIKANTH R" oninput="saveAndPreparedUpdate()">
+            </div>
+            <span style="font-size: 0.85rem; color: #718096;">* ಮಾಹಿತಿಯು ಬ್ರೌಸರ್‌ನಲ್ಲಿ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಉಳಿವು (Save) ಆಗುತ್ತದೆ.</span>
+        </div>
+
+        <!-- Dynamic Print Footer -->
+        <div id="printPreparedDisplay" class="print-prepared-display"></div>
+    </div>
+</div>
+
+<script>
+    let currentClass = "";
+    let studentsMap = {};
+
+    // 1. ಬ್ರೌಸರ್ ಸ್ಥಾಪಿತ LocalStorage ನಿಂದ ದತ್ತಾಂಶವನ್ನು ಲೋಡ್ ಮಾಡುವ ಕಾರ್ಯ
+    function loadSavedData() {
+        const savedSchool = localStorage.getItem("assessment_schoolName_6to8");
+        if (savedSchool) document.getElementById("schoolNameInput").value = savedSchool;
+
+        const savedPrepared = localStorage.getItem("assessment_preparedBy_6to8");
+        if (savedPrepared) document.getElementById("preparedByInput").value = savedPrepared;
+
+        const savedMap = localStorage.getItem("assessment_studentsMap_6to8");
+        if (savedMap) {
+            try {
+                studentsMap = JSON.parse(savedMap);
+            } catch (e) {
+                studentsMap = {};
+            }
+        }
+    }
+
+    // 2. ದತ್ತಾಂಶವನ್ನು ಸೇವ್ ಮಾಡುವ ಕಾರ್ಯ
+    function saveDataToStorage() {
+        localStorage.setItem("assessment_schoolName_6to8", document.getElementById("schoolNameInput").value);
+        localStorage.setItem("assessment_preparedBy_6to8", document.getElementById("preparedByInput").value);
+        localStorage.setItem("assessment_studentsMap_6to8", JSON.stringify(studentsMap));
+    }
+
+    function calculateGrade(percentage) {
+        if (percentage >= 90) return { text: "A+", class: "grade-A-plus" };
+        if (percentage >= 70) return { text: "A", class: "grade-A" };
+        if (percentage >= 50) return { text: "B+", class: "grade-B-plus" };
+        if (percentage >= 30) return { text: "B", class: "grade-B" };
+        return { text: "C", class: "grade-C" };
+    }
+
+    // FA-1, FA-2, FA-3, FA-4 ಗೆ 10% ಹಾಗೂ SA-1, SA-2 ಗೆ 30% Weightage
+    const assessmentWeightage = {
+        FA1: 10,
+        FA2: 10,
+        SA1: 30,
+        FA3: 10,
+        FA4: 10,
+        SA2: 30
+    };
+
+    function handleClassChange() {
+        const classSelect = document.getElementById("classSelect");
+        currentClass = classSelect.value;
+        updateStudentDropdown();
+        renderTable();
+    }
+
+    function handleSubjectChange() {
+        updateStudentDropdown();
+        renderTable();
+    }
+
+    function updateStudentDropdown() {
+        const studentSelect = document.getElementById("studentNameSelect");
+        const selectedSubject = document.getElementById("subjectSelect").value;
+        
+        studentSelect.innerHTML = '<option value="NEW">+ ಹೊಸ ವಿದ್ಯಾರ್ಥಿ ಸೇರಿಸಿ (+ Add New Student)</option>';
+
+        const uniqueNames = new Set();
+        Object.values(studentsMap).forEach(student => {
+            if ((!currentClass || student.className === currentClass) && 
+                (!selectedSubject || student.subject === selectedSubject)) {
+                uniqueNames.add(student.name);
+            }
+        });
+
+        uniqueNames.forEach(name => {
+            const opt = document.createElement("option");
+            opt.value = name;
+            opt.innerText = name;
+            studentSelect.appendChild(opt);
+        });
+
+        handleStudentSelectChange();
+    }
+
+    function handleStudentSelectChange() {
+        const studentSelect = document.getElementById("studentNameSelect");
+        const nameInput = document.getElementById("studentNameInput");
+
+        if (studentSelect.value === "NEW") {
+            nameInput.value = "";
+            nameInput.style.display = "block";
+            nameInput.required = true;
+        } else {
+            nameInput.value = studentSelect.value;
+            nameInput.style.display = "none";
+            nameInput.required = false;
+        }
+    }
+
+    function handleFormSubmit(event) {
+        event.preventDefault();
+
+        const studentSelect = document.getElementById("studentNameSelect");
+        let studentName = studentSelect.value === "NEW" 
+            ? document.getElementById("studentNameInput").value.trim() 
+            : studentSelect.value;
+
+        const subject = document.getElementById("subjectSelect").value;
+        const className = document.getElementById("classSelect").value;
+        const assessmentType = document.getElementById("assessmentType").value;
+        const maxMarks = parseFloat(document.getElementById("maxMarks").value);
+        const obtainedMarks = parseFloat(document.getElementById("obtainedMarks").value);
+
+        if (obtainedMarks > maxMarks) {
+            alert("ಪಡೆದ ಅಂಕಗಳು ಗರಿಷ್ಠ ಅಂಕಗಳಿಗಿಂತ ಹೆಚ್ಚಿರಬಾರದು!");
+            return;
+        }
+
+        const studentKey = `${studentName.toLowerCase()}_${subject}_${className}`;
+
+        if (!studentsMap[studentKey]) {
+            studentsMap[studentKey] = {
+                name: studentName,
+                subject: subject,
+                className: className,
+                marks: {}
+            };
+        }
+
+        studentsMap[studentKey].marks[assessmentType] = {
+            max: maxMarks,
+            obt: obtainedMarks
+        };
+
+        saveDataToStorage();
+        renderTable();
+        updateStudentDropdown();
+
+        document.getElementById("studentNameSelect").value = studentName;
+        handleStudentSelectChange();
+
+        document.getElementById("obtainedMarks").value = "";
+        document.getElementById("obtainedMarks").focus();
+    }
+
+    function renderTable() {
+        const tbody = document.getElementById("tableBody");
+        tbody.innerHTML = "";
+
+        const selectedSubject = document.getElementById("subjectSelect").value;
+
+        const keys = Object.keys(studentsMap).filter(key => {
+            const s = studentsMap[key];
+            const matchClass = currentClass ? s.className === currentClass : true;
+            const matchSubject = selectedSubject ? s.subject === selectedSubject : true;
+            return matchClass && matchSubject;
+        });
+
+        if (keys.length === 0) {
+            tbody.innerHTML = `
+                <tr id="emptyRow">
+                    <td colspan="24" style="color: #718096; padding: 24px; text-align: center;">
+                        ಯಾವ ದತ್ತಾಂಶವೂ ಲಭ್ಯವಿಲ್ಲ. ದಯವಿಟ್ಟು ಮೇಲಿನ ಫಾರ್ಮ್ ಬಳಸಿ ವಿದ್ಯಾರ್ಥಿಗಳ ಅಂಕಗಳನ್ನು ನಮೂದಿಸಿ.
+                    </td>
+                </tr>`;
+            updatePrintHeader();
+            return;
+        }
+
+        const assessments = ["FA1", "FA2", "SA1", "FA3", "FA4", "SA2"];
+
+        keys.forEach((key, index) => {
+            const student = studentsMap[key];
+            const tr = document.createElement("tr");
+
+            let sumWeightedMarks = 0; // 10% + 10% + 30% + 10% + 10% + 30% = 100%
+
+            let rowHtml = `
+                <td>${index + 1}</td>
+                <td class="col-student">${escapeHtml(student.name)}</td>
+            `;
+
+            assessments.forEach(ass => {
+                const targetWeight = assessmentWeightage[ass];
+                const colClass = (ass.startsWith("FA")) ? "col-fa" : "col-sa";
+
+                if (student.marks[ass]) {
+                    const m = student.marks[ass].max;
+                    const o = student.marks[ass].obt;
+
+                    const weightedVal = parseFloat(((o / m) * targetWeight).toFixed(1));
+                    sumWeightedMarks += weightedVal;
+
+                    const percentage = (o / m) * 100;
+                    const gradeInfo = calculateGrade(percentage);
+
+                    rowHtml += `
+                        <td class="${colClass}">${o}</td>
+                        <td class="${colClass}"><strong>${weightedVal}</strong></td>
+                        <td class="${colClass}"><span class="grade-badge ${gradeInfo.class}">${gradeInfo.text}</span></td>
+                    `;
+                } else {
+                    rowHtml += `
+                        <td class="${colClass}">-</td>
+                        <td class="${colClass}">-</td>
+                        <td class="${colClass}">-</td>
+                    `;
+                }
+            });
+
+            const finalObtained100 = sumWeightedMarks.toFixed(1);
+            const overallGrade = calculateGrade(sumWeightedMarks);
+
+            rowHtml += `
+                <td class="col-total">${finalObtained100}</td>
+                <td class="col-total">${finalObtained100}%</td>
+                <td class="col-total"><span class="grade-badge ${overallGrade.class}">${overallGrade.text}</span></td>
+                <td class="action-column">
+                    <button class="action-btn" onclick="deleteStudent('${key}')" title="Delete Row">🗑️</button>
+                </td>
+            `;
+
+            tr.innerHTML = rowHtml;
+            tbody.appendChild(tr);
+        });
+
+        updatePrintHeader();
+    }
+
+    function deleteStudent(key) {
+        if (confirm("ಈ ವಿದ್ಯಾರ್ಥಿಯ ಸಾಲನ್ನು ಅಳಿಸಬೇಕೇ?")) {
+            delete studentsMap[key];
+            saveDataToStorage();
+            renderTable();
+            updateStudentDropdown();
+        }
+    }
+
+    function clearAllData() {
+        if (confirm("ಗಮನಿಸಿ: ಇದು ಸಂಗ್ರಹವಾಗಿರುವ ಎಲ್ಲಾ ವಿದ್ಯಾರ್ಥಿಗಳ ದತ್ತಾಂಶವನ್ನು ಪೂರ್ಣವಾಗಿ ಅಳಿಸುತ್ತದೆ! ಮುಂದುವರಿಯಬೇಕೇ?")) {
+            studentsMap = {};
+            localStorage.removeItem("assessment_studentsMap_6to8");
+            renderTable();
+            updateStudentDropdown();
+        }
+    }
+
+    function saveAndHeaderUpdate() {
+        saveDataToStorage();
+        updatePrintHeader();
+    }
+
+    function saveAndPreparedUpdate() {
+        saveDataToStorage();
+        updatePreparedByPrint();
+    }
+
+    function updatePrintHeader() {
+        const schoolName = document.getElementById("schoolNameInput").value.trim();
+        const selectedSubject = document.getElementById("subjectSelect").value;
+        
+        document.getElementById("printSchoolTitle").innerText = schoolName ? schoolName : "ಶಾಲೆಯ ಹೆಸರು ನಮೂದಿಸಿಲ್ಲ";
+        
+        let classText = currentClass ? "ತರಗತಿ: " + currentClass : "ತರಗತಿ: -";
+        let subjectText = selectedSubject ? "ವಿಷಯ: " + selectedSubject : "ವಿಷಯ: -";
+        let yearText = "ಸಾಲು: 2026-27";
+
+        document.getElementById("printInfoHeader").innerText = `${classText}   |   ${subjectText}   |   ${yearText}`;
+    }
+
+    function updatePreparedByPrint() {
+        const preparedInput = document.getElementById("preparedByInput").value.trim();
+        const printDisplay = document.getElementById("printPreparedDisplay");
+
+        if (preparedInput !== "") {
+            printDisplay.innerText = "Prepared by: " + preparedInput;
+            printDisplay.style.display = "block";
+        } else {
+            printDisplay.innerText = "";
+            printDisplay.style.display = "none";
+        }
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.innerText = text;
+        return div.innerHTML;
+    }
+
+    window.onload = function() {
+        loadSavedData();
+        updatePreparedByPrint();
+        updatePrintHeader();
+        renderTable();
+    };
+</script>
+
+</body>
+</html>
